@@ -13,17 +13,20 @@ chown $USER:$USER -R /home/$USER
 #echo group = "root" >> /etc/libvirt/qemu.conf
 
 
-service sshd start
+/usr/sbin/sshd -D &
 service polkit start
-service libvirtd start
-service virtnetworkd start
-service virtqemud start
-service virtstoraged start
-service virtnodevd start
-service virtproxyd start
+libvirtd &
+virtnetworkd &
+virtqemud &
+virtstoraged &
+virtnodevd &
+virtproxyd &
 virt-host-validate
-
+echo ""
+echo "----------- ATTENTION -----------"
 echo "You can now login with the user: $USER"
 echo "With the temporary password: $password"
 echo "Or Using SSH_PUBLIC_KEY: $SSH_AUTHORIZED_KEYS"
-sleep inf
+echo "---------------------------------"
+echo ""
+virtlogd
