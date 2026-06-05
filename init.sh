@@ -20,7 +20,7 @@ libvirtd &
 virtnetworkd &
 virtqemud &
 virtstoraged &
-virtnodevd &
+/usr/sbin/virtnodevd &
 virtproxyd &
 virt-host-validate
 echo ""
