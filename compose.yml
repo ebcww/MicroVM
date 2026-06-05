@@ -2,13 +2,16 @@ services:
   kvm:
     build: .
     environment:
-      #- USER="vmadm"
+      #Uncomment for custom usernames (May break things!)
+      #- USER="CustomUser"
       - SSH_AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4JJ+/jq7g1Mh7+lfe7URDqPSEdNqNm/gYxtz3vdzKTx5D1yA9+KVvz07jvPwvPTARtzwfqVvWvBFrx9Fa5uEGlESEw2R0EMuX9AKs+Mfgx8bDdl1PlXvm6A4CctvQkR4H2zbo1g2yKTLtQD2N+Hr58nR07Lvjt09W23V+FMOritvNl/Xevj/hSJJMYg/RCJBfY+aH+MnQoSOdWRBN3wfA/73RagwIFaFQxD7HA8LTY6SBGHddeGfecQyKOSJ7P/bvxTfpUjZ3F9ymTUB0e0i1mSKLQcArJpItt4TNtKsx04Xl2JzQ3+Y7zHBK8R1QsoDdR1QmgLJY8MbzK6h+IuuHdTwmQOFCLoqZinrmQsKPKTavhQSawGw9G3wlrjhPBoxhfmPdpxX04/kmY6MEyCCforv53nXO4IONT8fZCvRt8LiVN3uP/qUnhr0iDVvfZySjMKbRObt3iGO+OHfT6g5SlEUKP0tA80DfhLZFmF1RWqcEWCWv9q1x57rW1FfWzEU= Test@Test
     volumes:
       - /dev/kvm:/dev/kvm
       - /dev/net/tun:/dev/net/tun
-      - /dev/hugepages/:/dev/hugepages
-      - /dev/vhost-net:/dev/vhost-net
+      # Uncomment for hugepages 
+      #- /dev/hugepages/:/dev/hugepages
+      #Uncomment vhost for accelerated networking support
+      #- /dev/vhost-net:/dev/vhost-net
       - ssh_keys:/etc/ssh
       - vm_data:/var/lib/libvirt
       - libvirt:/etc/libvirt
@@ -21,6 +24,7 @@ services:
     networks:
      - vmbr0
     pid: host
+    #For debug do not uncomment in production
     #security_opt:
      # - seccomp=unconfined
 
