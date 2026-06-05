@@ -1,4 +1,5 @@
 # Micro VM
+[![Docker](https://github.com/ebcww/MicroVM/actions/workflows/docker-publish.yml/badge.svg)](https://github.com/ebcww/MicroVM/actions/workflows/docker-publish.yml)
 Another unpriviliged rootless docker solution with libvirt HVM support with full kvm acceleration support. 
 Following the unix philosophy of principal of least privilige. This container is proudly made without AI.
 
