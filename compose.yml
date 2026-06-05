@@ -3,7 +3,7 @@ services:
     build: .
     environment:
       #- USER="vmadm"
-      - SSH_AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC1gAKtaaJntN7pR+9/OdFAEZq3OWNHSn4jRLWyrsVsHQgsQc5pSGSvG7L5Wu6nW5ZQuTjRCNOXfeyCnxfECN0MnKVCF+RtY0mpkKDZ7pDCjgt1Ev+4NarMWRxMzQFQqVxtmWcZrSVN2UIP70y8396b75UmWS7IHMJ6h4/maQgfggRq9O6plAtgaDgnrlfvRCNV/DqnDmG6KUQHHlVCCoBs6RMhh3Fge3yCamYz8C2vT57Cs7Rs6VxU8G9wpEg4BaorKpe/blPcacvQqjNC0QqtvijyRiqUboKv8aqLxGDufDZyMhC+eL3PI7bpz3yOI5BNVYLkZbuQ+SXUSE5DUbkj PIV AUTH pubkey pkcs11:id=%01;object=%01;token=elijah%40columbiarail.com;manufacturer=piv_II;serial=df75330d61af67d5%0D%04?module-path=/usr/lib64/opensc-pkcs11.so
+      - SSH_AUTHORIZED_KEYS=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC4JJ+/jq7g1Mh7+lfe7URDqPSEdNqNm/gYxtz3vdzKTx5D1yA9+KVvz07jvPwvPTARtzwfqVvWvBFrx9Fa5uEGlESEw2R0EMuX9AKs+Mfgx8bDdl1PlXvm6A4CctvQkR4H2zbo1g2yKTLtQD2N+Hr58nR07Lvjt09W23V+FMOritvNl/Xevj/hSJJMYg/RCJBfY+aH+MnQoSOdWRBN3wfA/73RagwIFaFQxD7HA8LTY6SBGHddeGfecQyKOSJ7P/bvxTfpUjZ3F9ymTUB0e0i1mSKLQcArJpItt4TNtKsx04Xl2JzQ3+Y7zHBK8R1QsoDdR1QmgLJY8MbzK6h+IuuHdTwmQOFCLoqZinrmQsKPKTavhQSawGw9G3wlrjhPBoxhfmPdpxX04/kmY6MEyCCforv53nXO4IONT8fZCvRt8LiVN3uP/qUnhr0iDVvfZySjMKbRObt3iGO+OHfT6g5SlEUKP0tA80DfhLZFmF1RWqcEWCWv9q1x57rW1FfWzEU= Test@Test
     volumes:
       - /dev/kvm:/dev/kvm
       - /dev/net/tun:/dev/net/tun
@@ -11,11 +11,7 @@ services:
       - /dev/vhost-net:/dev/vhost-net
       - ssh_keys:/etc/ssh
       - vm_data:/var/lib/libvirt
-      - libvirt_files_secrets:/etc/libvirt/secrets
-      - libvirt_files_qemu:/etc/libvirt/secrets
-      - libvirt_files_nwfilter:/etc/libvirt/nwfilter
-      - libvirt_files_storage:/etc/libvirt/storage
-
+      - libvirt:/etc/libvirt
     ports:
       - 8022:8022
     cap_add:
@@ -39,8 +35,5 @@ networks:
 volumes:
   ssh_keys:
   vm_data:
-  libvirt_files_secrets:
-  libvirt_files_qemu:
-  libvirt_files_nwfilter:
-  libvirt_files_storage:
+  libvirt:
 
