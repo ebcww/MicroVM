@@ -1,6 +1,6 @@
 # Micro VM
 Another unpriviliged rootless docker solution with libvirt HVM support with full kvm acceleration support. 
-Following the unix philosophy of principal of least privilige.
+Following the unix philosophy of principal of least privilige. This container is proudly made without AI.
 
 To run the latest version:
 1. Add your user to the kvm group
