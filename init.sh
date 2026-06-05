@@ -14,7 +14,8 @@ chown $USER:$USER -R /home/$USER
 
 
 /usr/sbin/sshd -D &
-service polkit start
+service polkit start &> /dev/null
+#Silencing annoying polkit errors
 libvirtd &
 virtnetworkd &
 virtqemud &
