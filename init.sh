@@ -11,7 +11,7 @@ chmod 600 /home/$USER/.ssh/authorized_keys
 chown $USER:$USER -R /home/$USER
 #echo user = "root" >> /etc/libvirt/qemu.conf
 #echo group = "root" >> /etc/libvirt/qemu.conf
-echo remember_owner = 0 >> /etc/libvirt/qemu.conf
+
 
 service sshd start
 service polkit start
